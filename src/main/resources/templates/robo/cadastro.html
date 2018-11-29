@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http//www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8"/>
+<title>Cadastro de Robô</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="navbar-top.css" rel="stylesheet">
+    
+</head>
+
+
+<body style="background-color:#cfcfcf">
+	
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="#">WickedBotz</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+        
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contato">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sobre">Sobre</a>
+          </li>
+          
+        </ul>
+      </div>
+      <form class="form-inline" th:action="@{/logout}" method="post">
+      	<input class="form-control- mr-sm-2" type="hidden" />
+	    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sair</button>
+  	  </form>
+  	  
+    </nav>
+		
+	<div class="container" id="cadastro">
+
+		<form 
+			th:action="${robo.id==null} ? @{/robos/cadastrar} : @{/robos/editar}" th:object="${robo}" method="POST">
+
+			<div align="center">
+				<h1>Cadastro de Robô</h1>
+			</div>
+				
+			<div class="jumbotron">
+				
+				<div class="form-group col-md-4">
+					<label for="nome">Nome</label> 
+					<input type="text" class="form-control form-control-sm" id="nome"
+						placeholder="ex: Robô cop" autofocus="autofocus" th:field="*{nome}" />
+					<div class="invalid-feedback"></div>
+				</div>
+				
+				<div class="form-group col-md-4">
+					<label for="categoria">Categoria</label> 
+					<input type="text" class="form-control form-control-sm" id="categoria"
+						placeholder="ex: Seguidor de Linha..." autofocus="autofocus" th:field="*{categoria}" />
+					<div class="invalid-feedback"></div>
+				</div>
+				
+				<div class="form-group col-md-4">
+					<label for="equipePertence">Equipe Pertence</label> 
+					<input type="text" class="form-control form-control-sm" id="equipePertence"
+						placeholder="ex: Católica" autofocus="autofocus" th:field="*{equipePertence}" />
+					<div class="invalid-feedback"></div>
+				</div>
+				
+				<div class="form-group col-md-4">
+					<label for="photo">Foto de Perfil</label> 
+					<input type="file" class="form-control-file" id="photo"
+						 autofocus="autofocus" th:field="*{photo}" />
+					<div class="invalid-feedback"></div>
+				</div>
+				
+				<br> 
+				<input type="hidden" id="id" th:field="*{id}" />
+				<button type="submit" class="btn btn-success btn-lg btn-block">Salvar</button>
+				<br>
+				<a href="/robos/listar" class="btn btn-info btn-lg btn-block" role="button" aria-pressed="true">Listar</a>
+			</div>
+	
+		</form>	
+			
+	</div>
+	
+	    
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	  	    	
+	</body>
+</html>

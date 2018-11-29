@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http//www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8"/>
+<title>WickedBotz</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="navbar-top.css" rel="stylesheet">
+    
+</head>
+
+
+<body style="background-color:#cfcfcf"> 
+	
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">WickedBotz</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+        
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contato">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sobre">Sobre</a>
+          </li>
+          
+        </ul>
+      </div>
+      <form class="form-inline" th:action="@{/logout}" method="post">
+      	<input class="form-control- mr-sm-2" type="hidden" />
+	    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sair</button>
+  	  </form>
+
+  	  
+    </nav>
+    
+    
+
+<main role="main" >
+
+      <div class="jumbotron" style="background-color:#005662">
+        <div class="container" style="color:White;">
+          <h1 class="display-3">Sistema de Cadastro</h1>
+          <p>API Rest para cadastro de Pessoas, Equipes e Robôs</p>
+        </div>
+      </div>
+
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Cadastro de Pessoa</h2>
+            <p>Você pode realizar upload em massa de arquivos CSV. 
+            	Podendo também, cadastrar uma pessoa única, listar todas as pessoas, editar ou apagar uma pessoa.</p>
+            <a href="/pessoas/cadastrar" class="btn btn-success btn-lg btn-block" role="button" aria-pressed="true">Cadastro em Massa</a>
+            <a href="/pessoas/cadastrar" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Cadastrar Pessoa</a>							
+			<a href="/pessoas/listar" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Listar Pessoas</a>
+          </div>
+          <div class="col-md-4">
+            <h2>Cadastro de Equipe</h2>
+            <p>Você pode realizar upload em massa de arquivos CSV. 
+            	Podendo também, cadastrar uma equipe, listar todas as equipes, editar ou apagar uma equipe.</p>
+            <a href="/equipes/cadastrar" class="btn btn-success btn-lg btn-block" role="button" aria-pressed="true">Cadastro em Massa</a>
+            <a href="/equipes/cadastrar" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Cadastrar Equipe</a>							
+			<a href="/equipes/listar" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Listar Equipes</a>
+          </div>
+          <div class="col-md-4">
+            <h2>Cadastro de Robô</h2>
+            <p>Você pode realizar upload em massa de arquivos CSV. 
+            	Podendo também, cadastrar um único robô, listar todas os robôs, editar ou apagar um robô.</p><br>
+            <a href="/robos/cadastrar" class="btn btn-success btn-lg btn-block" role="button" aria-pressed="true">Cadastro em Massa</a>
+            <a href="/robos/cadastrar" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Cadastrar Robô</a>							
+			<a href="/robos/listar" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Listar Robôs</a>
+          </div>
+          
+        </div>
+      </div>
+    </main>
+	    
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	  	    	
+	</body>
+</html>
